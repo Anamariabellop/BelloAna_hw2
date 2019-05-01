@@ -25,10 +25,11 @@ plt.xlabel("t(s)")
 plt.ylabel("senial")
 
 plt.subplot(2,1,2)
-plt.plot(t,ssuma, 'g')
+plt.plot(ts,ssuma, 'g')
 plt.title("Suma de seniales")
 plt.xlabel("t(s)")
 plt.ylabel("senial")
+plt.subplots_adjust(hspace=0.5)
 
 plt.savefig("Seniales.pdf")
 
