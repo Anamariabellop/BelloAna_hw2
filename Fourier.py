@@ -50,7 +50,27 @@ def TFD(x,N,senial):
 
 	return coeficientes;
 
+#grafica de TFD de ambas senales.
+dt=t[1]-t[0]
+dt2=ts[1]-t[0]
+frecuencias= np.fft.fftfreq(N,dt)
+frec=np.fft.fftfreq(n,dt2)
 
+plt.figure(figsize=(20,10))
+
+plt.subplot(2,1,1)
+plt.plot(frecuencias,TFD(x,len(senial),senial), 'c')
+plt.title("Transformada de senial 1")
+plt.xlabel("freq(Hz")
+plt.ylabel("senial")
+
+plt.subplot(2,1,2)
+plt.plot(frecuencias,TFD(x2,len(ssuma),ssuma), 'g')
+plt.title("Transformada suma seniales")
+plt.xlabel("freq(Hz)")
+plt.ylabel("senial")
+plt.subplots_adjust(hspace=0.5)
+plt.savefig("Transformadas.pdf")
 
 
 
