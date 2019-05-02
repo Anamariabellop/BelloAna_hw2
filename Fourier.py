@@ -48,7 +48,7 @@ def TFD(x,N,senial):
 			x[i] = x[i] + senial[k]*np.exp(-1j*np.pi*2*k*(i/N))
 			coeficientes.append(x[i])
 
-	return coeficientes;
+		return coeficientes;
 
 #grafica de TFD de ambas senales.
 dt=t[1]-t[0]
