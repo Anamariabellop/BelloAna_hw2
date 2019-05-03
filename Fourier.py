@@ -34,24 +34,20 @@ plt.subplots_adjust(hspace=0.5)
 plt.savefig("Seniales.pdf")
 
 #Haga transformada de fourier de ambas senales con implementacion propia.
-N=len(senial)
-n=len(ssuma)
-x=np.zeros(N)
-x2=np.zeros(n)
-
-
 def TFD(senial):
 	coeficientes=[]
 	for i in range(len(senial)):
 		resultado=0
 		for k in range(len(senial)):
 
-			resultado += senial[k]*np.exp(-1j*np.pi*2*k*(i/N))
-		coeficientes.append(resultado/N)
+			resultado += senial[k]*np.exp(-1j*np.pi*2*k*i/(len(senial)))
+		coeficientes.append(resultado/(len(senial)))
 
 	return coeficientes;
 		
 #grafica de TFD de ambas senales.
+N=len(senial)
+n=len(ssuma)
 dt=t[1]-t[0]
 dt2=ts[1]-t[0]
 frecuencias= np.fft.fftfreq(N,dt)
