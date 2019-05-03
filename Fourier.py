@@ -101,8 +101,15 @@ plt.ylabel("Senial")
 plt.title("Senial Temblor")
 plt.savefig("Senialtemblor.pdf")
 
-
-
-
+#Haga transformada de Foourier d la señak usando paquetes de scipy y grafiquela.
+transformada= fft(senialsismo)
+dtsismo=senialsismo[1]-senialsismo[0]
+fsismo= np.fft.fftfreq(len(senialsismo),dtsismo)
+plt.figure()
+plt.plot(fsismo,transformada)
+plt.title("Transformada senial temblor")
+plt.xlabel("Frecuencia(Hz)")
+plt.ylabel("senial")
+plt.savefig("Transformadatemblor.pdf")
 
 
