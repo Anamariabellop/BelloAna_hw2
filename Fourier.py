@@ -90,10 +90,16 @@ plt.savefig("Espectogramas.pdf")
 #Alamecene los datos de temblor.txt(senial sismica).
 
 sismo= np.genfromtxt("temblor.txt")
+senialsismo=sismo[:,1]
+tiempo= np.linspace(0,len(sismo))
 
-senialsismo=sismo[4:,1]
 
-print(senialsismo)
+plt.figure()
+plt.plot(tiempo,senialsismo)
+plt.xlabel("Tiempo(s)")
+plt.ylabel("Senial")
+plt.title("Senial Temblor")
+plt.savefig("Senialtemblor.pdf")
 
 
 
