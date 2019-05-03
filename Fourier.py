@@ -58,16 +58,19 @@ plt.figure(figsize=(20,10))
 plt.subplot(2,1,1)
 plt.plot(frecuencias,TFD(senial), 'c')
 plt.title("Transformada de senial 1")
-plt.xlabel("freq(Hz")
+plt.xlabel("freq(Hz)")
 plt.ylabel("senial")
 
 plt.subplot(2,1,2)
-plt.plot(frecuencias,TFD(ssuma), 'g')
+plt.plot(frec,TFD(ssuma), 'g')
 plt.title("Transformada suma seniales")
 plt.xlabel("freq(Hz)")
 plt.ylabel("senial")
 plt.subplots_adjust(hspace=0.5)
 plt.savefig("Transformadas.pdf")
+
+#Espectograma de las dos senales con paquete matplotlib.pyplot.specgram.
+
 
 
 
