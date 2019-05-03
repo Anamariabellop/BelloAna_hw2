@@ -53,7 +53,7 @@ dt2=ts[1]-t[0]
 frecuencias= np.fft.fftfreq(N,dt)
 frec=np.fft.fftfreq(n,dt2)
 
-plt.figure(figsize=(20,10))
+plt.figure(figsize=(10,10))
 
 plt.subplot(2,1,1)
 plt.plot(frecuencias,TFD(senial), 'c')
@@ -71,7 +71,21 @@ plt.savefig("Transformadas.pdf")
 
 #Espectograma de las dos senales con paquete matplotlib.pyplot.specgram.
 
+plt.figure(figsize=(20,10))
 
+plt.subplot(2,2,1)
+plt.specgram(senial)
+plt.title("Espectograma 1 senial")
+plt.ylabel("Frecuencia (Hz)")
+plt.xlabel("Tiempo(s)")
+
+
+plt.subplot(2,2,2)
+plt.specgram(ssuma)
+plt.title("Espectograma suma seniales")
+plt.ylabel("Frecuencia (Hz)")
+plt.xlabel("Tiempo(s)")
+plt.savefig("Espectogramas.pdf")
 
 
 
