@@ -87,7 +87,13 @@ plt.ylabel("Frecuencia (Hz)")
 plt.xlabel("Tiempo(s)")
 plt.savefig("Espectogramas.pdf")
 
+#Alamecene los datos de temblor.txt(senial sismica).
 
+sismo= np.genfromtxt("temblor.txt")
+
+senialsismo=sismo[4:,1]
+
+print(senialsismo)
 
 
 
