@@ -77,18 +77,18 @@ plt.figure(figsize=(20,10))
 
 plt.subplot(2,2,1)
 plt.specgram(senial)
-plt.title("Espectograma 1 senial")
+plt.title("Espectrograma 1 senial")
 plt.ylabel("Frecuencia (Hz)")
 plt.xlabel("Tiempo(s)")
 
 
 plt.subplot(2,2,2)
 plt.specgram(ssuma)
-plt.title("Espectograma suma seniales")
+plt.title("Espectrograma suma seniales")
 plt.ylabel("Frecuencia (Hz)")
 plt.xlabel("Tiempo(s)")
 plt.subplots_adjust(hspace=0.5)
-plt.savefig("Espectogramas.pdf")
+plt.savefig("Espectrogramas.pdf")
 
 #Alamecene los datos de temblor.txt(senial sismica).
 
@@ -115,5 +115,15 @@ plt.title("Transformada senial temblor")
 plt.xlabel("Frecuencia(Hz)")
 plt.ylabel("senial")
 plt.savefig("Transformadatemblor.pdf")
+
+#Haga un espectograma de la senial.
+
+plt.figure()
+plt.specgram(senialsismo)
+plt.title("Espectrograma temblor")
+plt.ylabel("Frecuencia (Hz)")
+plt.xlabel("Tiempo(s)")
+plt.savefig("Espectrogramatemblor.pdf")
+
 
 
