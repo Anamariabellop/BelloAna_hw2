@@ -41,7 +41,7 @@ def TFD(senial):
 		for k in range(len(senial)):
 
 			resultado += senial[k]*np.exp(-1j*np.pi*2*k*i/(len(senial)))
-		coeficientes.append(resultado/(len(senial)))
+		coeficientes.append(abs(resultado/(len(senial))))
 
 	return coeficientes;
 		
@@ -50,8 +50,8 @@ N=len(senial)
 n=len(ssuma)
 dt=t[1]-t[0]
 dt2=ts[1]-t[0]
-frecuencias= np.fft.fftfreq(N,dt)
-frec=np.fft.fftfreq(n,dt2)
+frecuencias= fftfreq(N,dt)
+frec= fftfreq(n,dt2)
 
 plt.figure(figsize=(10,10))
 
@@ -59,6 +59,7 @@ plt.subplot(2,1,1)
 plt.plot(frecuencias,TFD(senial), 'c')
 plt.title("Transformada de senial 1")
 plt.xlabel("freq(Hz)")
+plt.ylim(-0.05,0.15)
 plt.ylabel("senial")
 
 plt.subplot(2,1,2)
@@ -66,6 +67,7 @@ plt.plot(frec,TFD(ssuma), 'g')
 plt.title("Transformada suma seniales")
 plt.xlabel("freq(Hz)")
 plt.ylabel("senial")
+plt.ylim(-0.05,0.3)
 plt.subplots_adjust(hspace=0.5)
 plt.savefig("Transformadas.pdf")
 
@@ -85,14 +87,16 @@ plt.specgram(ssuma)
 plt.title("Espectograma suma seniales")
 plt.ylabel("Frecuencia (Hz)")
 plt.xlabel("Tiempo(s)")
+plt.subplots_adjust(hspace=0.5)
 plt.savefig("Espectogramas.pdf")
 
 #Alamecene los datos de temblor.txt(senial sismica).
 
 sismo= np.genfromtxt("temblor.txt")
-senialsismo=sismo[:,1]
-tiempo= np.linspace(0,len(sismo))
-
+senialsismo=sismo
+tiempo= np.linspace(0,len(senialsismo))
+print(len(tiempo))
+print(len(senialsismo))
 
 plt.figure()
 plt.plot(tiempo,senialsismo)
@@ -101,7 +105,7 @@ plt.ylabel("Senial")
 plt.title("Senial Temblor")
 plt.savefig("Senialtemblor.pdf")
 
-#Haga transformada de Foourier d la señak usando paquetes de scipy y grafiquela.
+#Haga transformada de Foourier d la senial usando paquetes de scipy y grafiquela.
 transformada= fft(senialsismo)
 dtsismo=senialsismo[1]-senialsismo[0]
 fsismo= np.fft.fftfreq(len(senialsismo),dtsismo)
