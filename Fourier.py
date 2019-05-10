@@ -94,9 +94,9 @@ plt.savefig("Espectogramas.pdf")
 
 sismo= np.genfromtxt("temblor.txt")
 senialsismo=sismo
-tiempo= np.linspace(0,len(senialsismo))
-print(len(tiempo))
-print(len(senialsismo))
+tiempo= np.linspace(0,len(senialsismo),len(senialsismo))
+#print(len(tiempo))
+#print(len(senialsismo))
 
 plt.figure()
 plt.plot(tiempo,senialsismo)
